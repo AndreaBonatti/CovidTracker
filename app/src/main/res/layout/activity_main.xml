@@ -58,7 +58,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/tvMetricLabel">
 
         <RadioButton

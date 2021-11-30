@@ -9,6 +9,10 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlinx.android.synthetic.main.activity_main.*
+import java.text.NumberFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 private const val BASE_URL = "https://api.covidtracking.com/v1/"
 private const val TAG = "MainActivity"
@@ -42,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                 // .reversed() to retrieve data from the holder to the newest
                 nationalDailyData = nationalData.reversed()
                 Log.i(TAG, "Update graph with national data")
-                // TODO: Update graph with national data
+                updateDisplayWithData(nationalDailyData)
             }
 
             override fun onFailure(call: Call<List<CovidData>>, t: Throwable) {
@@ -72,5 +76,22 @@ class MainActivity : AppCompatActivity() {
                 Log.e(TAG, "onFailure $t")
             }
         })
+    }
+
+    private fun updateDisplayWithData(dailyData: List<CovidData>) {
+        // Create a a new SparkAdapter with data
+        val adapter = CovidSparkAdapter(dailyData)
+        sparkView.adapter = adapter
+        // Update radio buttons to select the positive case and max time by default
+        radioButtonPositive.isChecked = true
+        radioButtonMax.isChecked = true
+        // Display metric for the most recent date
+        updateInfoForDate(dailyData.last())
+    }
+
+    private fun updateInfoForDate(covidData: CovidData) {
+        tvMetricLabel.text = NumberFormat.getInstance().format(covidData.positiveIncrease)
+        val outputDateFormat = SimpleDateFormat("MMM dd, yyyy", Locale.US)
+        tvDateLabel.text = outputDateFormat.format(covidData.dateChecked)
     }
 }
