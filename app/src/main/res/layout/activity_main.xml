@@ -43,18 +43,21 @@
 
         <RadioButton
             android:id="@+id/radioButtonNegative"
+            style="@style/CustomRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Negative" />
 
         <RadioButton
             android:id="@+id/radioButtonPositive"
+            style="@style/CustomRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Positive" />
 
         <RadioButton
             android:id="@+id/radioButtonDeath"
+            style="@style/CustomRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Deaths" />
@@ -64,6 +67,9 @@
         android:id="@+id/sparkView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp"
+        android:background="@color/colorBackgroundShade"
         app:layout_constraintBottom_toTopOf="@+id/radioGroupTimeSelection"
         app:layout_constraintTop_toBottomOf="@id/radioGroupMetricSelection" />
 
@@ -71,24 +77,30 @@
         android:id="@+id/radioGroupTimeSelection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:paddingBottom="8dp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/tvMetricLabel">
+        android:background="@color/colorBackgroundShade"
+        app:layout_constraintBottom_toTopOf="@+id/tickerView">
 
         <RadioButton
             android:id="@+id/radioButtonWeek"
+            style="@style/CustomRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Week" />
 
         <RadioButton
             android:id="@+id/radioButtonMonth"
+            style="@style/CustomRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Month" />
 
         <RadioButton
             android:id="@+id/radioButtonMax"
+            style="@style/CustomRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Max" />
@@ -105,8 +117,8 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:text="May 30, 2020" />
 
-    <TextView
-        android:id="@+id/tvMetricLabel"
+    <com.robinhood.ticker.TickerView
+        android:id="@+id/tickerView"
         android:layout_width="0dp"
         android:layout_height="80dp"
         android:gravity="center"

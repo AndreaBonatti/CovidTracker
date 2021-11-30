@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/BONAND/AndroidStudio/CovidTracker/app/src/main/res/drawable/button_background.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/BONAND/AndroidStudio/CovidTracker/app/src/main/res/drawable/button_checked.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/BONAND/AndroidStudio/CovidTracker/app/src/main/res/drawable/button_default.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/BONAND/AndroidStudio/CovidTracker/app/src/main/res/layout/activity_main.xml" value="0.33" />
       </map>
     </option>
